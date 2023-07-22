@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: (1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+}
+
+@font-face {
+    font-family: kameric-3d;
+    src: url(../fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: marriveather;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: kameric-3d;
+}
+
+.logo {
+    --logo-size: calc(var(--index)*8);
+    top: calc(var(--index)*2.8);
+    left: calc(50% - calc(var(--logo-size)/2));
+    z-index: 1;
+    position: absolute;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    background-repeat: no-repeat;
+}
+
+.leyers {
+    perspective: 1000px;
+}
+
+.leyers__container {
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    transition: transform var(--transition);
+}
+
+.leyers_item {
+    position: absolute;
+    inset: -5vw;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.leyer-1 {
+    transform: translateZ(-55px) scale(1.06);
+}
+
+.leyer-2 {
+    transform: translateZ(80px) scale(.88);
+}
+
+.leyer-3 {
+    transform: translateZ(180px) scale(.88);
+}
+
+.leyer-4 {
+    transform: translateZ(190px) scale(.9);
+}
+
+.leyer-5 {
+    transform: translateZ(300px) scale(.9);
+}
+
+.leyer-6 {
+    transform: translateZ(360px);
+}
+
+.hero_conteiner {
+    font-size: calc(var(--index)*2.8);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: calc(var(--index)*0.15);
+    line-height: 1.35em;
+    margin-top: calc(var(--index)*5.5);
+}
+
+.hero_conteiner span {
+    display: block;
+}
+
+.hero_content {
+    text-transform: none;
+    font-family: marriveather;
+    letter-spacing: normal;
+    font-size: calc(var(--index)*.8);
+    line-height: 3;
+}
+
+.batoon-start {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: calc(var(--index)*.71);
+    letter-spacing: -.02wv;
+    padding: calc(var(--index)*.7) calc(var(--index)*1.25);
+    background-color: transparent;
+    color: white;
+    border-radius: 10em;
+    border: rgb(255, 255, 255, .4) 3px solid;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.leyer-4,
+.leyer-5,
+.leyer-6 {
+    pointer-events: none;
+}
